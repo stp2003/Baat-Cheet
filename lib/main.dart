@@ -1,7 +1,6 @@
 import 'package:baatcheet/colors.dart';
-import 'package:baatcheet/screens/mobile_layout_screen.dart';
-import 'package:baatcheet/screens/web_layout_screen.dart';
-import 'package:baatcheet/utils/responsive_layout.dart';
+import 'package:baatcheet/features/landing/screens/landing_screen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,14 +14,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Whatsapp UI',
+      title: 'BaatCheet',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
       ),
-      home:  const ResponsiveLayout(
-        mobileScreenLayout: MobileLayoutScreen(),
-        webScreenLayout: WebLayoutScreen(),
-      ),
+      home: const LandingScreen(),
+
     );
   }
 }
