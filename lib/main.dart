@@ -1,9 +1,15 @@
 import 'package:baatcheet/colors.dart';
-import 'package:baatcheet/features/landing/screens/landing_screen.dart';
-
+import 'package:baatcheet/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'features/landing/screens/landing_screen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -19,7 +25,6 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: backgroundColor,
       ),
       home: const LandingScreen(),
-
     );
   }
 }

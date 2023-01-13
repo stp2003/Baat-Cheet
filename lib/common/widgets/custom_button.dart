@@ -16,11 +16,13 @@ class CustomButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         primary: tabColor,
-        minimumSize: const Size(double.infinity, 50),
+        minimumSize: const Size(double.infinity, 45),
       ),
       child: Text(
         text,
         style: const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
           color: Colors.black,
         ),
       ),

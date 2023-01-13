@@ -1,6 +1,6 @@
 import 'package:baatcheet/colors.dart';
-import 'package:flutter/material.dart';
 import 'package:baatcheet/common/widgets/custom_button.dart';
+import 'package:flutter/material.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -12,6 +12,7 @@ class LandingScreen extends StatefulWidget {
 class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
+    // for equal size on all screens
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: backColor,
@@ -23,29 +24,45 @@ class _LandingScreenState extends State<LandingScreen> {
             const Text(
               'VIT BaatCheet',
               style: TextStyle(
+                letterSpacing: 1,
                 color: whiteColor,
                 fontSize: 33,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            SizedBox(height: size.height / 9),
+            SizedBox(height: size.height / 11),
             Image.asset(
-              'assets/VIT.png',
+              'assets/vit_logo.png',
               height: 340,
               width: 340,
             ),
-            SizedBox(height: size.height / 9),
+            SizedBox(height: size.height / 11),
             const Padding(
               padding: EdgeInsets.all(15.0),
               child: Text(
-                'Welcome to VIT BaatCheet. You must login with your Registration Number and Password.',
-                style: TextStyle(color: greyColor),
+                'Welcome to VIT BaatCheet. You must login with your VIT Email I.D and Password.',
+                style: TextStyle(
+                  color: greyColor,
+                  fontWeight: FontWeight.w500,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 10,),
-            CustomButton(text: 'AGREE AND CONTINUE', onPressed: () {},),
+            const SizedBox(
+              height: 15,
+            ),
 
+            // Using Custom button made for all screen
+            SizedBox(
+              width: size.width * 0.8,
+              child: CustomButton(
+                text: 'AGREE AND CONTINUE',
+                onPressed: () {},
+              ),
+            ),
+            const SizedBox(
+              height: 1,
+            ),
           ],
         ),
       ),
