@@ -2,6 +2,8 @@ import 'package:baatcheet/colors.dart';
 import 'package:baatcheet/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../auth/screens/login_screen.dart';
+
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
 
@@ -49,7 +51,7 @@ class _LandingScreenState extends State<LandingScreen> {
               ),
             ),
             const SizedBox(
-              height: 15,
+              height: 30,
             ),
 
             // Using Custom button made for all screen
@@ -57,7 +59,7 @@ class _LandingScreenState extends State<LandingScreen> {
               width: size.width * 0.8,
               child: CustomButton(
                 text: 'AGREE AND CONTINUE',
-                onPressed: () {},
+                onPressed: () => navigateToLoginScreen(context),
               ),
             ),
             const SizedBox(
@@ -67,5 +69,10 @@ class _LandingScreenState extends State<LandingScreen> {
         ),
       ),
     );
+  }
+
+  // Function for navigation to login screen ->
+  void navigateToLoginScreen(BuildContext context) {
+    Navigator.pushNamed(context, LoginScreen.routeName);
   }
 }
