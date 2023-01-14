@@ -37,7 +37,7 @@ class OTPScreen extends ConsumerWidget {
             const SizedBox(
               height: 40,
             ),
-            const Text('We have sent an SMS with a code.'),
+            const Text('We have sent an SMS with a OTP.'),
             SizedBox(
               width: size.width * 0.5,
               child: TextField(
