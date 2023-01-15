@@ -19,7 +19,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         ),
       );
     case UserInformationScreen.routeName:
-      final verificationId = settings.arguments as String;
       return MaterialPageRoute(
         builder: (context) => const UserInformationScreen(),
       );

@@ -45,6 +45,7 @@ class OTPScreen extends ConsumerWidget {
                 decoration: const InputDecoration(
                   hintText: '- - - - - -',
                   hintStyle: TextStyle(
+                    letterSpacing: 2,
                     fontSize: 30,
                   ),
                 ),
