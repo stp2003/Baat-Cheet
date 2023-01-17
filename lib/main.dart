@@ -18,7 +18,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+ 
   runApp(
     const ProviderScope(child: MyApp()),
   );
