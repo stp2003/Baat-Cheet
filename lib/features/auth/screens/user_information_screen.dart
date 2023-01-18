@@ -57,7 +57,7 @@ class _UserInformationScreenState extends ConsumerState<UserInformationScreen> {
                     image == null
                         ? const CircleAvatar(
                             backgroundImage: NetworkImage(
-                              'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.redwolf.in%2Fimage%2Fcatalog%2Fstickers%2Fstar-wars-darth-vader-mask-sticker.jpg&imgrefurl=https%3A%2F%2Fwww.redwolf.in%2Fstar-wars-darth-vader-mask-sticker&tbnid=WMEVsaFiPwPSEM&vet=12ahUKEwir7aKPjsn8AhWd83MBHdq7DGgQMyggegUIARCsAg..i&docid=m-S8fHpn29qHJM&w=700&h=700&q=darth%20vader%20images&ved=2ahUKEwir7aKPjsn8AhWd83MBHdq7DGgQMyggegUIARCsAg',
+                              'https://png.pngitem.com/pimgs/s/649-6490124_katie-notopoulos-katienotopoulos-i-write-about-tech-round.png',
                             ),
                             radius: 60,
                           )
