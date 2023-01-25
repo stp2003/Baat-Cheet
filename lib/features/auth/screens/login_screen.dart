@@ -59,57 +59,61 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         elevation: 0,
         backgroundColor: backgroundColor,
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 18, right: 18, top: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 5,
-            ),
-            const Text(
-              'BaatCheet will need to verify your phone number.',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-                letterSpacing: 0.5,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 18, right: 18, top: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 5,
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            // For country code ->
-            TextButton(
-              onPressed: () => pickCountry(),
-              child: const Text('Pic Country'),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Row(
-              children: [
-                // country code selection
-                if (country != null) Text('+${country!.phoneCode}'),
-                const SizedBox(width: 10),
-                SizedBox(
-                  width: size.width * 0.7,
-                  child: TextField(
-                    controller: phoneController,
-                    decoration: const InputDecoration(hintText: 'phone number'),
-                  ),
+              const Text(
+                'BaatCheet will need to verify your phone number.',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  letterSpacing: 0.5,
                 ),
-              ],
-            ),
-            SizedBox(height: size.height * 0.223),
-            // Next Button ->
-            SizedBox(
-              width: 90,
-              child: CustomButton(
-                onPressed: sendPhoneNumber,
-                text: 'NEXT',
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 15,
+              ),
+              // For country code ->
+              TextButton(
+                onPressed: () => pickCountry(),
+                child: const Text('Pic Country'),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Row(
+                children: [
+                  // country code selection
+                  if (country != null) Text('+${country!.phoneCode}'),
+                  const SizedBox(width: 10),
+                  SizedBox(
+                    width: size.width * 0.7,
+                    child: TextField(
+                      controller: phoneController,
+                      decoration:
+                          const InputDecoration(hintText: 'phone number'),
+                      keyboardType: TextInputType.number,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: size.height * 0.62),
+              // Next Button ->
+              SizedBox(
+                width: 90,
+                child: CustomButton(
+                  onPressed: sendPhoneNumber,
+                  text: 'NEXT',
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

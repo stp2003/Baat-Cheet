@@ -1,4 +1,5 @@
 import 'package:baatcheet/colors.dart';
+import 'package:baatcheet/features/select_contacts/screens/select_contacts_screen.dart';
 import 'package:baatcheet/widgets/contacts_list.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +56,10 @@ class MobileLayoutScreen extends StatelessWidget {
         ),
         body: const ContactsList(),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          //?? adding contacts screen ->
+          onPressed: () {
+            Navigator.pushNamed(context, SelectContactsScreen.routeName);
+          },
           backgroundColor: tabColor,
           child: const Icon(
             Icons.comment,

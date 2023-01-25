@@ -1,10 +1,18 @@
-import 'package:baatcheet/widgets/chat_list.dart';
 import 'package:baatcheet/colors.dart';
 import 'package:baatcheet/info.dart';
+import 'package:baatcheet/widgets/chat_list.dart';
 import 'package:flutter/material.dart';
 
 class MobileChatScreen extends StatelessWidget {
-  const MobileChatScreen({Key? key}) : super(key: key);
+  //** routes ->
+  static const String routeName = '/mobile-chat-screen';
+
+  //??
+  final String name;
+  final String uid;
+
+  const MobileChatScreen({Key? key, required this.name, required this.uid})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
