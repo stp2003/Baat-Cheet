@@ -52,4 +52,9 @@ class AuhController {
       context: context,
     );
   }
+
+  //?? user data for isOnline feature ->
+  Stream<UserModel> userDataById(String userId) {
+    return authRepository.userData(userId);
+  }
 }

@@ -1,9 +1,13 @@
 import 'package:baatcheet/colors.dart';
-import 'package:baatcheet/info.dart';
+import 'package:baatcheet/features/auth/controller/auth_controller.dart';
+import 'package:baatcheet/models/user_model.dart';
 import 'package:baatcheet/widgets/chat_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MobileChatScreen extends StatelessWidget {
+import '../common/widgets/loader.dart';
+
+class MobileChatScreen extends ConsumerWidget {
   //** routes ->
   static const String routeName = '/mobile-chat-screen';
 
@@ -15,13 +19,30 @@ class MobileChatScreen extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: appBarColor,
-        title: Text(
-          info[0]['name'].toString(),
-        ),
+        title: StreamBuilder<UserModel>(
+            stream: ref.read(authControllerProvider).userDataById(uid),
+            builder: (context, snapshot) {
+              //** checking for online or offline status of user ->
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Loader();
+              }
+              return Column(
+                children: [
+                  Text(name),
+                  Text(
+                    snapshot.data!.isOnline ? 'online' : 'offline',
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              );
+            }),
         centerTitle: false,
         actions: [
           IconButton(
