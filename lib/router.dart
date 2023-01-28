@@ -2,7 +2,7 @@ import 'package:baatcheet/common/widgets/error.dart';
 import 'package:baatcheet/features/auth/screens/login_screen.dart';
 import 'package:baatcheet/features/auth/screens/user_information_screen.dart';
 import 'package:baatcheet/features/select_contacts/screens/select_contacts_screen.dart';
-import 'package:baatcheet/screens/mobile_chat_screen.dart';
+import 'package:baatcheet/features/chat/screens/mobile_chat_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'features/auth/screens/otp_screen.dart';
