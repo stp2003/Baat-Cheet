@@ -1,6 +1,6 @@
 import 'package:baatcheet/colors.dart';
+import 'package:baatcheet/features/chat/widgets/chat_list.dart';
 import 'package:baatcheet/features/chat/widgets/contacts_list.dart';
-import 'package:baatcheet/widgets/chat_list.dart';
 import 'package:baatcheet/widgets/web_chat_appbar.dart';
 import 'package:baatcheet/widgets/web_profile_bar.dart';
 import 'package:baatcheet/widgets/web_search_bar.dart';
@@ -44,7 +44,9 @@ class WebLayoutScreen extends StatelessWidget {
                 const ChatAppBar(),
                 const SizedBox(height: 20),
                 const Expanded(
-                  child: ChatList(),
+                  child: ChatList(
+                    recieverUserId: '',
+                  ),
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.07,
