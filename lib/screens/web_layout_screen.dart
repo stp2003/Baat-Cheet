@@ -1,9 +1,6 @@
 import 'package:baatcheet/colors.dart';
-import 'package:baatcheet/info.dart';
+import 'package:baatcheet/features/chat/widgets/contacts_list.dart';
 import 'package:baatcheet/widgets/chat_list.dart';
-import 'package:baatcheet/widgets/contacts_list.dart';
-import 'package:baatcheet/widgets/my_message_card.dart';
-import 'package:baatcheet/widgets/sender_message_card.dart';
 import 'package:baatcheet/widgets/web_chat_appbar.dart';
 import 'package:baatcheet/widgets/web_profile_bar.dart';
 import 'package:baatcheet/widgets/web_search_bar.dart';
