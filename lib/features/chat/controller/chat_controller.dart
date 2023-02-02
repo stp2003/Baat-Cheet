@@ -73,4 +73,23 @@ class ChatController {
           ),
         );
   }
+
+  // void sendGIFMessage(
+  //   BuildContext context,
+  //   String gifUrl,
+  //   String recieverUserId,
+  // ) {
+  //   int gifUrlPartIndex = gifUrl.lastIndexOf('-') + 1;
+  //   String gifUrlPart = gifUrl.substring(gifUrlPartIndex);
+  //   String newGifUrl = 'https://i.giphy.com/media/$gifUrlPart/200.gif';
+  //
+  //   ref.read(userDataAuthProvider).whenData(
+  //         (value) => chatRepository.sendGif(
+  //           context: context,
+  //           gifUrl: newGifUrl,
+  //           recieverUserId: recieverUserId,
+  //           senderUser: value!,
+  //         ),
+  //       );
+  // }
 }

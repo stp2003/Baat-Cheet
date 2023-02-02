@@ -1,4 +1,5 @@
 import 'package:baatcheet/common/enum/message_enum.dart';
+import 'package:baatcheet/features/chat/widgets/video_player_item.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -21,8 +22,16 @@ class DisplayTextImageGif extends StatelessWidget {
               fontSize: 16,
             ),
           )
-        : CachedNetworkImage(
-            imageUrl: message,
-          );
+        : type == MessageEnum.video
+            ? VideoPlayerItem(
+                videoUrl: message,
+              )
+            // : type == MessageEnum.gif
+            //     ? CachedNetworkImage(
+            //         imageUrl: message,
+            //       )
+            : CachedNetworkImage(
+                imageUrl: message,
+              );
   }
 }
