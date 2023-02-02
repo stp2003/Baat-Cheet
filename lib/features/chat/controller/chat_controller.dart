@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:baatcheet/common/enum/message_enum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -51,5 +54,23 @@ class ChatController {
           ),
         );
     // ref.read(messageReplyProvider.state).update((state) => null);
+  }
+
+  void sendFileMessage(
+    BuildContext context,
+    File file,
+    String recieverUserId,
+    MessageEnum messageEnum,
+  ) {
+    ref.read(userDataAuthProvider).whenData(
+          (value) => chatRepository.sendFileMessage(
+            context: context,
+            file: file,
+            recieverUserId: recieverUserId,
+            senderUserData: value!,
+            messageEnum: messageEnum,
+            ref: ref,
+          ),
+        );
   }
 }

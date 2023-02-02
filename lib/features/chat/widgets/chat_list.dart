@@ -1,6 +1,6 @@
 import 'package:baatcheet/features/chat/controller/chat_controller.dart';
-import 'package:baatcheet/widgets/my_message_card.dart';
-import 'package:baatcheet/widgets/sender_message_card.dart';
+import 'package:baatcheet/features/chat/widgets/my_message_card.dart';
+import 'package:baatcheet/features/chat/widgets/sender_message_card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -62,11 +62,13 @@ class _ChatListState extends ConsumerState<ChatList> {
               return MyMessageCard(
                 message: messageData.text,
                 date: timeSent,
+                type: messageData.type,
               );
             }
             return SenderMessageCard(
               message: messageData.text,
               date: timeSent,
+              type: messageData.type,
             );
           },
         );
