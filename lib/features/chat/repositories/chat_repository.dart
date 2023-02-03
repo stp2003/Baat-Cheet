@@ -11,6 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../common/enum/message_enum.dart';
+import '../../../common/providers/message_reply_provider.dart';
 import '../../../models/chat_contact.dart';
 
 //?? chat repository provider ->
@@ -138,8 +139,8 @@ class ChatRepository {
     required String messageId,
     required String username,
     required MessageEnum messageType,
-    // required MessageReply? messageReply,
-    // required String senderUsername,
+    required MessageReply? messageReply,
+    required String senderUsername,
     required recieverUserName,
     // required bool isGroupChat,
   }) async {
@@ -151,6 +152,14 @@ class ChatRepository {
       timeSent: timeSent,
       messageId: messageId,
       isSeen: false,
+      repliedMessage: messageReply == null ? '' : messageReply.message,
+      repliedTo: messageReply == null
+          ? ''
+          : messageReply.isMe
+              ? senderUsername
+              : recieverUserName,
+      repliedMessageType:
+          messageReply == null ? MessageEnum.text : messageReply.messageEnum,
     );
     // users -> sender id -> reciever id -> messages -> message id -> store message
     await firestore
@@ -182,6 +191,7 @@ class ChatRepository {
     required String text,
     required String recieverUserId,
     required UserModel senderUser,
+    required MessageReply? messageReply,
   }) async {
     try {
       var timeSent = DateTime.now();
@@ -210,9 +220,9 @@ class ChatRepository {
         messageType: MessageEnum.text,
         messageId: messageId,
         username: senderUser.name,
-        // messageReply: messageReply,
+        senderUsername: senderUser.name,
+        messageReply: messageReply,
         recieverUserName: recieverUserData.name,
-        // senderUsername: senderUser.name,
         // isGroupChat: isGroupChat,
       );
     } catch (e) {
@@ -228,6 +238,7 @@ class ChatRepository {
     required UserModel senderUserData,
     required ProviderRef ref,
     required MessageEnum messageEnum,
+    required MessageReply? messageReply,
   }) async {
     try {
       var timeSent = DateTime.now();
@@ -283,8 +294,8 @@ class ChatRepository {
         username: senderUserData.name,
         messageType: messageEnum,
         recieverUserName: recieverUserData.name,
-        //messageReply: messageReply,
-        //senderUsername: senderUserData.name,
+        messageReply: messageReply,
+        senderUsername: senderUserData.name,
         //isGroupChat: isGroupChat,
       );
     } catch (e) {
@@ -298,6 +309,8 @@ class ChatRepository {
   //   required String gifUrl,
   //   required String recieverUserId,
   //   required UserModel senderUser,
+  //   required MessageReply? messageReply,
+
   // }) async {
   //   try {
   //     var timeSent = DateTime.now();
@@ -326,9 +339,9 @@ class ChatRepository {
   //       messageType: MessageEnum.gif,
   //       messageId: messageId,
   //       username: senderUser.name,
-  //       // messageReply: messageReply,
+  //       messageReply: messageReply,
   //       recieverUserName: recieverUserData.name,
-  //       // senderUsername: senderUser.name,
+  //       senderUsername: senderUser.name,
   //       // isGroupChat: isGroupChat,
   //     );
   //   } catch (e) {
