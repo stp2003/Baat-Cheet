@@ -4,6 +4,7 @@ import 'package:baatcheet/colors.dart';
 import 'package:baatcheet/common/utils/utils.dart';
 import 'package:baatcheet/features/auth/controller/auth_controller.dart';
 import 'package:baatcheet/features/chat/widgets/contacts_list.dart';
+import 'package:baatcheet/features/group/screens/create_group_screen.dart';
 import 'package:baatcheet/features/select_contacts/screens/select_contacts_screen.dart';
 import 'package:baatcheet/features/status/screens/confirm_status.dart';
 import 'package:baatcheet/features/status/screens/status_contact_screen.dart';
@@ -73,9 +74,22 @@ class _MobileLayoutScreenState extends ConsumerState<MobileLayoutScreen>
               icon: const Icon(Icons.search, color: Colors.grey),
               onPressed: () {},
             ),
-            IconButton(
-              icon: const Icon(Icons.more_vert, color: Colors.grey),
-              onPressed: () {},
+            PopupMenuButton(
+              icon: const Icon(
+                Icons.more_vert,
+                color: Colors.grey,
+              ),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  child: const Text(
+                    'Create Group',
+                  ),
+                  onTap: () => Future(
+                    () => Navigator.pushNamed(
+                        context, CreateGroupScreen.routeName),
+                  ),
+                ),
+              ],
             ),
           ],
           bottom: TabBar(
